@@ -1,0 +1,10 @@
+# Go
+server/*.exe
+server/server
+*.test
+*.out
+
+# OS / local
+.DS_Store
+Thumbs.db
+resume-session.txt
