@@ -1,6 +1,6 @@
 # go-angular-chat
 
-Group chat: a Go server relays JSON over a WebSocket to an Angular client. A learning project; the build-along guide is `Build a Real-Time Chat App with Go + Angular (2026 Edition).md`. Read it before changing architecture or adding an exercise from it.
+Group chat: a Go server relays JSON over a WebSocket to an Angular client. A learning project; the build-along guide is `doc/Build a Real-Time Chat App with Go + Angular (2026 Edition).md`. Read it before changing architecture or adding an exercise from it.
 
 - `server/`: Go (modules, `net/http` `ServeMux`, `coder/websocket`, `google/uuid`). Port 8080.
 - `client/`: Angular (standalone components, signals, `@for`/`@if`, RxJS `webSocket()`). Port 4200.

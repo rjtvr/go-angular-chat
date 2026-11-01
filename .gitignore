@@ -8,3 +8,6 @@ server/server
 .DS_Store
 Thumbs.db
 resume-session.txt
+
+# Local docs
+doc/
