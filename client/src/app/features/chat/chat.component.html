@@ -1,0 +1,31 @@
+<section class="chat">
+  <header class="chat__header">
+    <h1>Go + Angular Chat</h1>
+    <span class="status" [attr.data-status]="chat.status()">
+      {{ chat.status() }}{{ chat.myId() ? ' as ' + chat.myId() : '' }}
+    </span>
+  </header>
+
+  <ul class="chat__messages" #list>
+    @for (msg of chat.messages(); track $index) {
+      @if (msg.type === 'system') {
+        <li class="system">{{ msg.content }}</li>
+      } @else {
+        <li class="bubble" [class.mine]="msg.sender === chat.myId()">
+          <span class="meta">
+            {{ msg.sender === chat.myId() ? 'You' : msg.sender }} · {{ msg.sentAt | date: 'shortTime' }}
+          </span>
+          <p>{{ msg.content }}</p>
+        </li>
+      }
+    } @empty {
+      <li class="system">No messages yet. Open a second tab and say hi.</li>
+    }
+  </ul>
+
+  <form class="chat__form" (submit)="send($event, input)">
+    <input #input placeholder="Type a message…" autocomplete="off" maxlength="500"
+           [disabled]="chat.status() !== 'online'" />
+    <button type="submit" [disabled]="chat.status() !== 'online'">Send</button>
+  </form>
+</section>
